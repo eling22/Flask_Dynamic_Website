@@ -51,4 +51,4 @@ after run, you could see :
 
 this time enter `http://127.0.0.1:5000/` to browser, you will see
 
-![image](https://github.com/eling22/Flask_Dynamic_Website/raw/try/picture\lecture1_1.PNG)
+![image](https://github.com/eling22/Flask_Dynamic_Website/blob/try/picture/lecture1_1.PNG)
