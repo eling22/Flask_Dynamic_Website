@@ -1,0 +1,10 @@
+{% extends 'share/layout.html'%}
+{% block body %}
+<section>
+    <h1>Stock {{stock.id}} : {{stock.name}}</h1>
+    <p>final price : {{stock.price}}</p>
+    <p>buy price : {{stock.bid}}</p>
+    <p>sell price : {{stock.offer}}</p>
+    <a href="/">back Home</a>
+</section>
+{% endblock %}
