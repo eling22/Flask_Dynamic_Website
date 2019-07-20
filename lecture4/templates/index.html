@@ -1,0 +1,31 @@
+{% extends 'shared/layout.html' %}
+{% block body %}
+<header class="jumbotron">
+    <div class="container">
+        <h1>Home</h1>
+    </div>
+</header>
+<section>
+    <div class="container">
+        <h2>Products</h2>
+        <div class="row">
+            {%for product in products%}
+            <div class="col-md-4">
+                <!-- card -->
+                <div class="card mb-3">
+                    <img class="card-img-top" src={{product["image_url"]}} alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">{{product["title"]}}</h4>
+                        <span class="badge badge-secondary">{{product["category"]}}</span>
+                        <p class="card-text">{{product["price"]}}</p>
+                        <a href="/product/{{product['id']}}" class="btn btn-primary">Show detail</a>
+                        <a href="/product/{{product['id']}}/edit" class="btn btn-warning">Edit</a>
+                    </div>
+                </div>
+                <!-- card end -->
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</section>
+{% endblock %}

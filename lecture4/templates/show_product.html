@@ -1,0 +1,15 @@
+{% extends 'shared/layout.html'%}
+{% block body%}
+<header>
+    <img src="{{product['image_url']}}" width="100%" alt="">
+</header>
+<section>
+    <div class="container py-5">
+        <h1>{{product['title']}}</h1>
+        <p>{{product['price']}}</p>
+        <p>{{product['category']}}</p>
+        <p>{{product['description']}}</p>
+        <a href="/" class="btn btn-primary">Back Home</a>
+    </div>
+</section>
+{%endblock%}
