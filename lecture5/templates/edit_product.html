@@ -1,0 +1,65 @@
+{% extends 'shared/layout.html' %}
+{% block body %}
+<header class="jumbotron">
+    <div class="container">
+        <h1>Edit Product - {{product['title']}}</h1>
+    </div>
+</header>
+<section>
+    <div class="container">
+        <h2>Fill the form below to edit a product</h2>
+        <!--  show form -->
+        <form method="POST">
+            <!-- put verification code -->
+            {{form.hidden_tag()}}
+            <div class="form-group">
+                <!-- title's enter hint -->
+                {{form.title.label}}
+                <!-- a place to enter title data -->
+                {{form.title(class = 'form-control')}}
+            </div>
+            <div class="form-group">
+                {{form.price.label}}
+                {{form.price(class = 'form-control')}}
+                <!-- {{form.price(class = 'form-control', min = 1, max = 50000)}} -->
+                {%if 'price' in form.errors %}
+                <!-- <p class="text-danger">{{form.errors['price']}}</p> -->
+                <p class="text-danger">price must in 1~50000</p>
+                {%endif%}
+            </div>
+            <div class="form-group">
+                {{form.img_url.label}}
+                {{form.img_url(class = 'form-control')}}
+            </div>
+            <div class="form-group">
+                {{form.category.label}}
+                {{form.category(class = 'form-control')}}
+            </div>
+            <div class="form-group">
+                {{form.description.label}}
+                {{form.description(class = 'form-control')}}
+            </div>
+            <div class="form-group">
+                {{form.on_sale.label}}
+                {{form.on_sale()}}
+            </div>
+            <div class="form-group">
+                {{form.submit(class = 'btn btn-primary')}}
+            </div>
+        </form>
+        <form method="POST" class="card bg-light">
+            {{delete_form.hidden_tag()}}
+            <div class="card-header">Danger zone</div>
+            <div class="card-body">
+                <div class="form-group">
+                    {{delete_form.confirm.label}}
+                    {{delete_form.confirm()}}
+                </div>
+                <div class="form-group">
+                    {{delete_form.submit(class='btn btn-danger')}}
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
