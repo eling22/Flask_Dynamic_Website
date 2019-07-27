@@ -1,0 +1,95 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">My Website</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/create_product">Create Product</a>
+            </li>
+            <!-- li.nav-tiem>a.nav-link -->
+            <li class="nav-tiem">
+                <a data-toggle="modal" href="#signUpModal" class="nav-link">Sign Up</a>
+            </li>
+            <li class="nav-tiem">
+                <a data-toggle="modal" href="#loginModal" class="nav-link">Log in</a>
+            </li>
+            <li class="nav-tiem">
+                <a href="" class="nav-link">Log out</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+<!-- signUpModal -->
+<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Sign Up</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="email" id="signUpEmail" class="form-control" placeholder="" aria-describedby="helpId"
+                        required>
+                    <small id="helpId" class="text-muted">Help text</small>
+                </div>
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" id="signUpPassword" class="form-control" placeholder=""
+                        aria-describedby="helpId" minlength="6" required>
+                    <small id="helpId" class="text-muted">Help text</small>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- signUpModal end -->
+
+<!-- loginModel -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form onsubmit="login(event)" class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Log in</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="email" id="loginEmail" class="form-control" placeholder="" aria-describedby="helpId"
+                        required>
+                    <small id="helpId" class="text-muted">Help text</small>
+                </div>
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" id="loginPassword" class="form-control" placeholder=""
+                        aria-describedby="helpId" minlength="6" required>
+                    <small id="helpId" class="text-muted">Log in</small>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Log in</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- loginModel end-->
