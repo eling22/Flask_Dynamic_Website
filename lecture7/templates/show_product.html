@@ -1,0 +1,66 @@
+{% extends 'shared/layout.html'%}
+{% block body%}
+<header>
+    <img src="{{product['image_url']}}" width="100%" alt="">
+</header>
+<section>
+    <div class="container py-5">
+        <h1>{{product['title']}}</h1>
+        <p>${{product['price']}}</p>
+        <p>{{product['category']}}</p>
+        <p>{{product['description']}}</p>
+        <a href="/" class="btn btn-primary">Back Home</a>
+
+        {% for comment in comments %}
+        <div class="card bg-light mt-3">
+            <div class="card-header">{{comment['email']}}</div>
+            <div class="card-body">
+                <p>{{comment['content']}}</p>
+                {%if check_auth['is_login'] and check_auth['user']['email']== comment['email']%}
+                <form method="POST">
+                    {{comment['form'].hidden_tag()}}
+                    <div class="form-group mt-3">
+                        {{ comment['form'].content.label }}
+                        {{ comment['form'].content(class="form-control") }}
+                    </div>
+                    <div class="form-group">
+                        {{ comment['form'].submit(class="btn btn-success") }}
+                    </div>
+                </form>
+                {%endif%}
+            </div>
+        </div>
+        {% endfor %}
+
+        <!-- create new comment -->
+        {% if check_auth['is_login']%}
+        <form method="POST" class="card mt-3">
+            <div class="card-header">Create comment</div>
+            <div class="card-body">
+                {{create_comment_form.hidden_tag()}}
+                <div class="form-group">
+                    {{ create_comment_form.email.label }}
+                    {{ create_comment_form.email(class = "form-control",type = email) }}
+                </div>
+                <div class="form-group">
+                    {{ create_comment_form.content.label }}
+                    {{ create_comment_form.content(class = "form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ create_comment_form.submit(class = "btn btn-primary") }}
+                </div>
+            </div>
+        </form>
+        {% else %}
+        <h3>
+            please
+            <a data-toggle="modal" href="#loginModal">
+                login
+            </a>
+            ,then you can comment.
+        </h3>
+        {%endif%}
+
+    </div>
+</section>
+{%endblock%}
